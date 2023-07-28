@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({
-    super.key,
-  });
+  const CustomSearchIcon({super.key, required this.icon, required this.action});
+  final IconData icon;
+  final VoidCallback action;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class CustomSearchIcon extends StatelessWidget {
         splashRadius: 21,
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints(),
-        icon: const Icon(Icons.search),
-        onPressed: () {},
+        icon: Icon(icon),
+        onPressed: action,
       ),
     );
   }

@@ -11,18 +11,19 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 40,
       child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.black,
-            backgroundColor: KPrimaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.black,
+          backgroundColor: KPrimaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
           ),
-          onPressed: () {},
-          child: const Text(
-            'Add',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-          )),
+        ),
+        onPressed: () {},
+        child: const Text(
+          'Add',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+        ),
+      ),
     );
   }
 }
