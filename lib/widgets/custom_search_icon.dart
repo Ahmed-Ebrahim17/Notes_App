@@ -15,6 +15,7 @@ class CustomSearchIcon extends StatelessWidget {
         color: Colors.grey.withOpacity(0.1),
       ),
       child: IconButton(
+        splashRadius: 21,
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints(),
         icon: const Icon(Icons.search),

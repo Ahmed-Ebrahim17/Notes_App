@@ -11,7 +11,7 @@ class NotesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+        padding: EdgeInsets.only(top: 16, left: 16, right: 16),
         child: Column(
           children: [
             CustomAppBar(),
