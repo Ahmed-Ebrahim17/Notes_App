@@ -7,7 +7,7 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/notes_view.dart';
 
-import 'cubits/cubit/color_cubit_cubit.dart';
+import 'cubits/color_cubit/color_cubit_cubit.dart';
 
 void main() async {
   await Hive.initFlutter();

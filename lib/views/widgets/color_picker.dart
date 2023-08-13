@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-import '../../cubits/cubit/color_cubit_cubit.dart';
+import '../../cubits/color_cubit/color_cubit_cubit.dart';
 
 void colorPicekr(BuildContext context) {
   showDialog(
