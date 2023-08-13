@@ -1,14 +1,14 @@
 part of 'add_note_cubit.dart';
 
-abstract class AddNoteState {}
+abstract class AddNoteStates {}
 
-class AddNoteInitial extends AddNoteState {}
+class AddNoteInitial extends AddNoteStates {}
 
-class AddNoteLoading extends AddNoteState {}
+class AddNoteLoading extends AddNoteStates {}
 
-class AddNoteSuccessful extends AddNoteState {}
+class AddNoteSuccessful extends AddNoteStates {}
 
-class AddNoteFailure extends AddNoteState {
+class AddNoteFailure extends AddNoteStates {
   final String errorMessage;
 
   AddNoteFailure(this.errorMessage);

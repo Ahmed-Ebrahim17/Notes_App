@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/views/widgets/add_note_form.dart';
 import 'package:notes_app/views/widgets/custom_app_bar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/snakbar.dart';
 
-class EditNoteViewBody extends StatelessWidget {
-  const EditNoteViewBody({super.key});
+import '../../cubits/cubit/color_cubit_cubit.dart';
+
+class EditNoteViewBody extends StatefulWidget {
+  const EditNoteViewBody({super.key, required this.noteModel});
+
+  final NoteModel noteModel;
+  @override
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
+}
+
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
+  String? title;
+
+  String? subTitle;
+  int? color;
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +34,40 @@ class EditNoteViewBody extends StatelessWidget {
                 icon: Icons.check,
                 title: 'Edit Note',
                 action: () {
+                  widget.noteModel.title = title ?? widget.noteModel.title;
+                  widget.noteModel.subTitle =
+                      subTitle ?? widget.noteModel.subTitle;
+                  widget.noteModel.color =
+                      BlocProvider.of<ColorCubit>(context).mainColor.value ??
+                          widget.noteModel.color;
+                  widget.noteModel.save();
+                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   Navigator.pop(context);
+                  showSnakBar(context, 'Editied', Colors.blue);
                 }),
             const SizedBox(
               height: 20,
             ),
-            const CustomTextField(text: 'Title'),
+            CustomTextField(
+                onChanged: (data) {
+                  title = data;
+                },
+                text: 'Title'),
             const SizedBox(
               height: 16,
             ),
-            const CustomTextField(
+            CustomTextField(
+              onChanged: (data) {
+                subTitle = data;
+              },
               text: 'Content',
               maxLines: 5,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const ColorItem(
+              text: 'Change color',
             ),
           ],
         ),

@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onPress});
+  const CustomButton({super.key, this.onPress, this.isLoading = false});
   final void Function()? onPress;
+  final isLoading;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,10 +20,19 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         onPressed: onPress,
-        child: const Text(
-          'Add',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-        ),
+        child: isLoading
+            ? const SizedBox(
+                height: 25,
+                width: 25,
+                child: CircularProgressIndicator(
+                  color: Colors.black,
+                ),
+              )
+            : const Text(
+                'Add',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+              ),
       ),
     );
   }
